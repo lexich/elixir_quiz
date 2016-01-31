@@ -15,16 +15,16 @@ Tasks from [Programming Elixir](https://pragprog.com/book/elixir/programming-eli
 
 If [available in Hex](https://hex.pm/docs/publish), the package can be installed as:
 
-  1. Add elixir_quiz to your list of dependencies in `mix.exs`:
+  1. Add elixir_tasks to your list of dependencies in `mix.exs`:
 
         def deps do
-          [{:elixir_quiz, "~> 0.0.1"}]
+          [{:elixir_tasks, "~> 0.0.1"}]
         end
 
-  2. Ensure elixir_quiz is started before your application:
+  2. Ensure elixir_tasks is started before your application:
 
         def application do
-          [applications: [:elixir_quiz]]
+          [applications: [:elixir_tasks]]
         end
 
 
