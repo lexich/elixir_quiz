@@ -34,32 +34,25 @@ defmodule EnumFunctions do
     defp _reverse([head | tail], result), do: _reverse(tail, [head | result])    
     defp _reverse([], result), do: result
 
-    def split(list, num) do
-        if num > 0 do
-            _split(list, num, [])
-        else
-            r_list = reverse(list)
-            [first, last] = split r_list, (-1 * num)
-            [reverse(last), reverse(first)]
-        end
+
+    def split(list, num) when num < 0 do        
+        r_list = reverse(list)
+        [first, last] = split r_list, (-1 * num)
+        [reverse(last), reverse(first)]        
     end
+    def split(list, num), do: _split(list, num, [])
     defp _split([], num, result), do: [reverse(result), []]
     defp _split(list, 0, result), do: [reverse(result), list]
     defp _split([head | tail], num, result) do
         _split tail, num - 1, [head | result]
     end
 
-
     def take([], _), do: []
     def take(_, 0), do: []
+    def take([head | tail], num) when num > 0, do: [head | take(tail, num - 1)]        
     def take(list, num) do
-        [head | tail] = list
-        if num > 0 do
-            [head | take(tail, num - 1)]
-        else
-            r_list = reverse list
-            result = take r_list, (-1 * num)
-            reverse result
-        end
+        r_list = reverse list
+        result = take r_list, (-1 * num)
+        reverse result
     end
 end
